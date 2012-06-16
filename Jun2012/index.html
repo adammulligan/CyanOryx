@@ -19,6 +19,8 @@
       div .img_gloss {
         display: inline-block;
       	position: relative;
+
+        background-image: url('me.jpg')
 	
       	-webkit-border-radius: 5px;
       	-moz-border-radius: 5px;
@@ -58,6 +60,19 @@
       }
     </style>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var toggleImgs = function() {
+          console.log('ac');
+          $('#evil-me').toggle();
+          $('#me').toggle();
+        }
+
+        $('.img_gloss').hover(toggleImgs,toggleImgs)
+      });
+    </script>
+
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
   </head>
@@ -67,8 +82,9 @@
     <div class="container">
       <div class="hero-unit">
         <div class="row">
-          <div class="span4 img_gloss" style="margin:h!important;width:170px;">
-            <img src="me.jpg" alt="A photo of Adam Mulligan in a suit" />
+          <div class="span4 img_gloss" style="width:170px;">
+            <img src="me.jpg" alt="A photo of Adam Mulligan in a suit" id="me" />
+            <img src="me_evil.jpg" alt="A photo of Adam Mulligan, also in a suit" id="evil-me" style="display:none" />
           </div>
         <div class="span8"  style="margin: 0 0 0 30px !important;">
         <h1>Hello!</h1>
