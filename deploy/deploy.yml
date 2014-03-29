@@ -3,15 +3,16 @@
 - name: Deploy to server
   hosts: servers
   user: adam
+  sudo: yes
 
   tasks:
+    - name: Create /var/www
+      file: dest=/var/www state=directory
     - name: Clone repo
       git: repo={{ repo_url }} dest=/var/www/{{host}}
     - name: Install nginx config
-      template: src=nginx.j2 dest=/etc/nginx/sites-available/cyanoryx
-      sudo: yes
+      template: src=templates/nginx.j2 dest=/etc/nginx/sites-available/cyanoryx
     - name: Enable nginx config
       file: src=/etc/nginx/sites-available/cyanoryx dest=/etc/nginx/sites-enabled/cyanoryx state=link
-      sudo: yes
-      notify:
-        - restart nginx
+    - name: Restart nginx
+      service: name=nginx state=restarted
