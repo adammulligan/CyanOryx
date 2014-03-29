@@ -5,11 +5,11 @@
   user: adam
 
   tasks:
-    - monitoring
-    - security
-    - nginx
-    - vim
-    - tmux
-    - utils
-    - nodejs
-    - ruby
+    - name: Install nginx config
+      template: src=nginx.j2 dest=/etc/nginx/sites-available/cyanoryx
+      sudo: yes
+    - name: Enable nginx config
+      file: src=/etc/nginx/sites-available/cyanoryx dest=/etc/nginx/sites-enabled/cyanoryx state=link
+      sudo: yes
+      notify:
+        - restart nginx
