@@ -5,6 +5,8 @@
   user: adam
 
   tasks:
+    - name: Clone repo
+      git: repo={{ repo_url }} dest=/var/www/{{host}}
     - name: Install nginx config
       template: src=nginx.j2 dest=/etc/nginx/sites-available/cyanoryx
       sudo: yes
