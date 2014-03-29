@@ -1,0 +1,15 @@
+---
+
+- name: Deploy to server
+  hosts: servers
+  user: adam
+
+  tasks:
+    - monitoring
+    - security
+    - nginx
+    - vim
+    - tmux
+    - utils
+    - nodejs
+    - ruby
