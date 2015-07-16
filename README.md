@@ -4,4 +4,4 @@ A repo for my personal homepage, for easy deployment.
 
 ## Deployment
 
-`ansible-playbook -i hosts deploy/deploy.yml`
+`ansible-playbook -i deploy/hosts deploy/deploy.yml`
