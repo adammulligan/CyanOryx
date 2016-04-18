@@ -1,4 +1,4 @@
-# Cyanoryx.com Home
+# Cyanoryx.com/adammulligan.co Home
 
 A repo for my personal homepage, for easy deployment.
 
